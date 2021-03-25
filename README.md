@@ -7,7 +7,18 @@ A set of UI Web Components to be used with the [Vonage Client SDKs](https://deve
 
 ## Installation Guide
 
-See each Web Component for installation instructions. 
+Please see each Web Component for individual installation instructions.
+
+### In-app voice:
+
+* phone dialler (coming soon)
+
+### In-app messaging:
+
+* [vonage-input](vonage-input)
+* [vonage-members](vonage-members)
+* [vonage-messages-feed](vonage-messages-feed)
+* [vonage-typing-indicator](vonage-typing-indicator)
 
 ## Contributing
 
