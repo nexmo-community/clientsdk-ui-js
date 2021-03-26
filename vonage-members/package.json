@@ -1,7 +1,7 @@
 {
-  "name": "@dwane-vonage/vonage-members",
+  "name": "@vonage/vonage-members",
   "version": "0.0.1",
-  "description": "Webcomponent vonage-members following open-wc recommendations",
+  "description": "Web Component vonage-members following open-wc recommendations",
   "author": "vonage-members",
   "license": "MIT",
   "main": "index.js",
@@ -54,5 +54,21 @@
   },
   "directories": {
     "test": "test"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nexmo-community/clientsdk-ui-js.git"
+  },
+  "keywords": [
+    "web",
+    "component",
+    "ui",
+    "client",
+    "sdk",
+    "vonage"
+  ],
+  "bugs": {
+    "url": "https://github.com/nexmo-community/clientsdk-ui-js/issues"
+  },
+  "homepage": "https://github.com/nexmo-community/clientsdk-ui-js#readme"
 }

@@ -1,7 +1,7 @@
 {
-  "name": "@dwane-vonage/vonage-typing-indicator",
-  "version": "0.0.9",
-  "description": "Webcomponent vonage-typing-indicator following open-wc recommendations",
+  "name": "@vonage/vonage-typing-indicator",
+  "version": "0.0.1",
+  "description": "Web Component vonage-typing-indicator following open-wc recommendations",
   "author": "vonage-typing-indicator",
   "license": "MIT",
   "main": "index.js",
@@ -54,5 +54,21 @@
   },
   "directories": {
     "test": "test"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nexmo-community/clientsdk-ui-js.git"
+  },
+  "keywords": [
+    "web",
+    "component",
+    "ui",
+    "client",
+    "sdk",
+    "vonage"
+  ],
+  "bugs": {
+    "url": "https://github.com/nexmo-community/clientsdk-ui-js/issues"
+  },
+  "homepage": "https://github.com/nexmo-community/clientsdk-ui-js#readme"
 }
