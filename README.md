@@ -11,7 +11,7 @@ Please see each Web Component for individual installation instructions.
 
 ### In-app voice:
 
-* phone dialler (coming soon)
+* [vc-keypad](vc-keypad)
 
 ### In-app messaging:
 
