@@ -15,10 +15,10 @@ Please see each Web Component for individual installation instructions.
 
 ### In-app messaging:
 
-* [vonage-input](vonage-input)
-* [vonage-members](vonage-members)
-* [vonage-messages-feed](vonage-messages-feed)
-* [vonage-typing-indicator](vonage-typing-indicator)
+* [vc-text-input](vc-text-input)
+* [vc-members](vc-members)
+* [vc-messages](vc-messages)
+* [vc-typing-indicator](vc-typing-indicator)
 
 ## Contributing
 
