@@ -20,6 +20,8 @@ Please see each Web Component for individual installation instructions.
 * [vc-messages](vc-messages)
 * [vc-typing-indicator](vc-typing-indicator)
 
+To set up your own demo chat application, here is a remix of the [Glitch project](https://glitch.com/edit/#!/remix/boggy-luminous-fish?path=README.md).
+
 ## Contributing
 
 Thank you for taking the time to contribute, feel free to ask questions.
