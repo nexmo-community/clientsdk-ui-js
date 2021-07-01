@@ -1,6 +1,6 @@
 {
   "name": "@vonage/vc-typing-indicator",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "description": "Web Component vc-typing-indicator following open-wc recommendations",
   "author": "vc-typing-indicator",
   "license": "MIT",

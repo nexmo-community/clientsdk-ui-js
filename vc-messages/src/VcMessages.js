@@ -75,12 +75,12 @@ export class VcMessages extends LitElement {
             ${this.myId === message.message.from
               ? html`<div class="message my-message">
                   ${message.message.body.text.replace(/</g, '&lt;')}<br /><small
-                    >${message.sender.display_name.replace(/</g, '&lt;')}</small
+                    >${message.sender.displayName.replace(/</g, '&lt;')}</small
                   >
                 </div>`
               : html`<div class="message">
                   ${message.message.body.text.replace(/</g, '&lt;')}<br /><small
-                    >${message.sender.display_name.replace(/</g, '&lt;')}</small
+                    >${message.sender.displayName.replace(/</g, '&lt;')}</small
                   >
                 </div>`}
           `

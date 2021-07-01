@@ -1,6 +1,6 @@
 {
   "name": "@vonage/vc-text-input",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "description": "Web Component vc-text-input following open-wc recommendations",
   "author": "vc-text-input",
   "license": "MIT",
