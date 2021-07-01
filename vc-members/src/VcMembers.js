@@ -30,16 +30,27 @@ export class VcMembers extends LitElement {
     this.members = [];
   }
 
-  updated(changedProperties) {
+  async updated(changedProperties) {
     if(changedProperties.get("conversation")){
-      this.conversation.members.forEach((member, key, map) => {
-        this.members = [...this.members, {id:member.id, display_name:member.display_name, name:member.user.name}];
-      });
+      try {
+        await this.conversation.getMembers({order:"asc", page_size:100}).then((members_page) => {
+          members_page.items.forEach((member, key, map) => {
+            if (member.state === "JOINED") {
+              this.members = [...this.members, { displayName: member.display_name, memberId: member.id, userName: member.user.name, userId: member.user.id}];
+            }
+          })
+        }).catch((error) => {
+          console.error("error getting the members ", error);
+        });
+      }
+      catch (error){
+        console.error('error in getting members of the conversation: ', error);
+      }
       this.conversation.on("member:joined",(member, event) => {
-        this.members = [...this.members, {id:member.id, display_name:member.display_name, name:member.user.name}];
+        this.members = [...this.members, member];
       });
       this.conversation.on("member:left", (memberLeft, event) => {
-        this.members = this.members.filter(member => member.id !== memberLeft.id);
+        this.members = this.members.filter(member => member.memberId !== memberLeft.memberId);
       });
     }
   }
@@ -47,7 +58,7 @@ export class VcMembers extends LitElement {
   render() {
     return html`
       <ul>
-        ${this.members.map((member) => html`<li>${member.display_name}</li>`)}
+        ${this.members.map((member) => html`<li>${member.displayName}</li>`)}
       </ul>
     `;
   }

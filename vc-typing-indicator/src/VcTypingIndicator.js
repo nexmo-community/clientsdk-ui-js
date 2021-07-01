@@ -27,8 +27,8 @@ export class VcTypingIndicator extends LitElement {
   updated(changedProperties) {
     if(changedProperties.get("conversation")){
       this.conversation.on("text:typing:on",(data) => {
-        if (data.user.id !== data.conversation.me.user.id) {
-          this.typingStatus = `${data.display_name} is typing...`;
+        if (data.memberId !== this.conversation.me.id) {
+          this.typingStatus = `${data.displayName} is typing...`;
         }
       });
       this.conversation.on("text:typing:off", () => {
