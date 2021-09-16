@@ -1,6 +1,4 @@
 import { html, css, LitElement } from 'lit-element';
-import '@material/mwc-button/mwc-button';
-import '@material/mwc-textfield/mwc-textfield';
 
 export class VcKeypad extends LitElement {
   static get styles() {
@@ -25,15 +23,28 @@ export class VcKeypad extends LitElement {
         width: 100%;
       }
 
-      mwc-button {
-          margin: 10px;
+      input {
+        color: var(--vc-text-input-text-color, #000);
+        padding: 5px 15px;
+        background-color: transparent;
+        border: 1px solid var(--vc-text-input-border-color, #000);
+        border-radius: 6px;
+        width: 100%;
+        font-size: 1.4rem;
+        box-sizing: border-box;
+        margin: 5px;
       }
 
-      mwc-textfield {
-        --mdc-notched-outline-leading-width: 28px;
-        --mdc-notched-outline-leading-border-radius: 28px 0 0 28px;
-        --mdc-notched-outline-trailing-border-radius: 0 28px 28px 0;
-        width: 100%;
+      button {
+        color: var(--vc-button-text-color, #fff);
+        padding: 5px 15px;
+        background-color: transparent;
+        border: 1px solid var(--vc-button-border-color, #000);
+        border-radius: 6px;
+        cursor: pointer;
+        background: #871fff;
+        font-size: 1.4rem;
+        margin: 5px;
       }
     `;
   }
@@ -118,41 +129,41 @@ export class VcKeypad extends LitElement {
 
   render() {
     return html`
-        <div id="container">
-            ${this.noDisplay ? "" : html`<mwc-textfield id="digits-display" outlined label="" .placeholder=${this.placeholder} .value=${this.digits} @blur=${this.__displayBlur}></mwc-textfield>`}
-            <div class="button-row">
-                  <mwc-button unelevated @click=${()=>this.__addDigit(this.keys[0])}>${this.keys[0]}</mwc-button>
-                  <mwc-button unelevated @click=${()=>this.__addDigit(this.keys[1])}>${this.keys[1]}</mwc-button>
-                  <mwc-button unelevated @click=${()=>this.__addDigit(this.keys[2])}>${this.keys[2]}</mwc-button>
-            </div>
-            <div class="button-row">
-                  <mwc-button unelevated @click=${()=>this.__addDigit(this.keys[3])}>${this.keys[3]}</mwc-button>
-                  <mwc-button unelevated @click=${()=>this.__addDigit(this.keys[4])}>${this.keys[4]}</mwc-button>
-                  <mwc-button unelevated @click=${()=>this.__addDigit(this.keys[5])}>${this.keys[5]}</mwc-button>
-            </div>
-            <div class="button-row">
-                  <mwc-button unelevated @click=${()=>this.__addDigit(this.keys[6])}>${this.keys[6]}</mwc-button>
-                  <mwc-button unelevated @click=${()=>this.__addDigit(this.keys[7])}>${this.keys[7]}</mwc-button>
-                  <mwc-button unelevated @click=${()=>this.__addDigit(this.keys[8])}>${this.keys[8]}</mwc-button>
-            </div>
-            <div class="button-row">
-                  ${this.noAsterisk ?
-      ""
-      : html`<mwc-button unelevated @click=${()=>this.__addDigit(this.keys[9])}>${this.keys[9]}</mwc-button>`
-    }
-                  <mwc-button unelevated @click=${()=>this.__addDigit(this.keys[10])}>${this.keys[10]}</mwc-button>
-                  ${this.noHash ?
-      ""
-      :html`<mwc-button unelevated @click=${()=>this.__addDigit(this.keys[11])}>${this.keys[11]}</mwc-button>`
-    }
-            </div>
-            <div class="button-row">
-                ${this.actionStarted ?
-      html`<mwc-button unelevated fullwidth @click=${this.__endAction}>${this.cancelText}</mwc-button>`
-      :html`<mwc-button unelevated fullwidth @click=${this.__sendDigits}>${this.actionText}</mwc-button>`
-    }
-            </div>
+      <div part="container" id="container">
+        ${this.noDisplay ? "" : html`<input part="input" type="text" id="digits-display" label="" .placeholder=${this.placeholder} .value=${this.digits} @blur=${this.__displayBlur}>`}
+        <div part="row position1" class="button-row">
+          <button part="button position1" @click=${()=>this.__addDigit(this.keys[0])}>${this.keys[0]}</button>
+          <button part="button position2" @click=${()=>this.__addDigit(this.keys[1])}>${this.keys[1]}</button>
+          <button part="button position3" @click=${()=>this.__addDigit(this.keys[2])}>${this.keys[2]}</button>
         </div>
+        <div part="row position2" class="button-row">
+          <button part="button position4" @click=${()=>this.__addDigit(this.keys[3])}>${this.keys[3]}</button>
+          <button part="button position5" @click=${()=>this.__addDigit(this.keys[4])}>${this.keys[4]}</button>
+          <button part="button position6" @click=${()=>this.__addDigit(this.keys[5])}>${this.keys[5]}</button>
+        </div>
+        <div part="row position3" class="button-row">
+          <button part="button position7" @click=${()=>this.__addDigit(this.keys[6])}>${this.keys[6]}</button>
+          <button part="button position8" @click=${()=>this.__addDigit(this.keys[7])}>${this.keys[7]}</button>
+          <button part="button position9" @click=${()=>this.__addDigit(this.keys[8])}>${this.keys[8]}</button>
+        </div>
+        <div part="row position4" class="button-row">
+          ${this.noAsterisk ?
+            ""
+            : html`<button part="button position10" @click=${()=>this.__addDigit(this.keys[9])}>${this.keys[9]}</button>`
+          }
+          <button part="button position11" @click=${()=>this.__addDigit(this.keys[10])}>${this.keys[10]}</button>
+          ${this.noHash ?
+            ""
+            :html`<button part="button position12" @click=${()=>this.__addDigit(this.keys[11])}>${this.keys[11]}</button>`
+          }
+        </div>
+        <div part="row position5" class="button-row">
+          ${this.actionStarted ?
+            html`<button part="button cancel" fullwidth @click=${this.__endAction}>${this.cancelText}</button>`
+            :html`<button part="button action" fullwidth @click=${this.__sendDigits}>${this.actionText}</button>`
+          }
+        </div>
+      </div>
     `;
   }
 }
