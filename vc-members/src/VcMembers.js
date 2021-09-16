@@ -7,6 +7,7 @@ export class VcMembers extends LitElement {
         display: block;
         padding: 25px;
         color: var(--vc-members-text-color, #000);
+        font-size: 1.4rem;
       }
       ul {
         overflow: auto;
