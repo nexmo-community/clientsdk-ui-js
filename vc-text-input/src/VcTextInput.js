@@ -9,7 +9,23 @@ export class VcTextInput extends LitElement {
         color: var(--vc-text-input-text-color, #000);
       }
       input {
+        color: var(--vc-text-input-text-color, #000);
+        padding: 5px 15px;
+        background-color: transparent;
+        border: 1px solid var(--vc-text-input-border-color, #000);
+        border-radius: 6px;
         width: 80%;
+        font-size: 1.4rem;
+      }
+      button {
+        color: var(--vc-text-input-text-color, #fff);
+        padding: 5px 15px;
+        background-color: transparent;
+        border: 1px solid var(--vc-text-input-border-color, #000);
+        border-radius: 6px;
+        cursor: pointer;
+        background: #871fff;
+        font-size: 1.4rem;
       }
     `;
   }
@@ -17,7 +33,8 @@ export class VcTextInput extends LitElement {
   static get properties() {
     return {
       conversation: { type: Object },
-      message: { type: String }
+      message: { type: String },
+      placeholder: { type: String }
     };
   }
 
@@ -25,6 +42,7 @@ export class VcTextInput extends LitElement {
     super();
     this.conversation = {};
     this.message = "";
+    this.placeholder = "Enter message";
   }
 
   __handleKeypress(e) {
@@ -49,8 +67,8 @@ export class VcTextInput extends LitElement {
 
   render() {
     return html`
-      <input @keypress=${this.__handleKeypress} @keyup=${this.__handleKeyup} .value="${this.message}" type="text" id="text" name="text">
-      <button @click=${this.__handleClickEvent}>send</button>
+      <input part="input" placeholder=${this.placeholder} @keypress=${this.__handleKeypress} @keyup=${this.__handleKeyup} .value="${this.message}" type="text" id="text" name="text">
+      <button part="button" @click=${this.__handleClickEvent}>send</button>
     `;
   }
 }
