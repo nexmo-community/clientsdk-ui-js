@@ -7,12 +7,20 @@ export class VcMembers extends LitElement {
         display: block;
         padding: 25px;
         color: var(--vc-members-text-color, #000);
+        font-size: 1.4rem;
       }
       ul {
-        width: 100%;
-        height: 100%;
         overflow: auto;
         list-style: none;
+      }
+      li {
+        padding: 10px;
+      }
+      li:nth-child(odd) {
+        background-color: var(--vc-members-nth-child-odd-color, #f9f9f9);
+      }
+      li:nth-child(even) {
+        background-color: var(--vc-members-nth-child-even-color, #fcfcfc);
       }
     `;
   }
@@ -57,8 +65,8 @@ export class VcMembers extends LitElement {
 
   render() {
     return html`
-      <ul>
-        ${this.members.map((member) => html`<li>${member.displayName}</li>`)}
+      <ul part="ul">
+        ${this.members.map((member) => html`<li part="li">${member.displayName}</li>`)}
       </ul>
     `;
   }
