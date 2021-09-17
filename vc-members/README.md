@@ -32,6 +32,39 @@ vcMembers.conversation = conversation;
 ```
 > **Note:** To see where `conversation` came from, see step 10 in the [tutorial](https://developer.nexmo.com/client-sdk/tutorials/in-app-messaging/client-sdk/in-app-messaging/join-conversation/javascript).
 
+## Styling
+
+The `vc-members` component uses [CSS part](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) and [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to apply custom styles.
+
+Here is a diagram that labels the parts of the component as well as the default style:
+
+![Diagram labeling the parts of the component](vc-members-style-diagram.jpg "Diagram labeling the parts of the component")
+
+To style the overall component, the part is "ul". For each member in the list, the part is "li".
+
+By setting the custom properties, "--vc-members-nth-child-odd-color" and "--vc-members-nth-child-even-color" you can customize the colors of the odd and even numbered rows.
+
+Example:
+```css
+vc-members::part(ul) {
+  list-style: disc;
+  border: 2px red dotted;
+}
+
+vc-members::part(li) {
+  color: black;
+  font-size: 30px;
+}
+
+vc-members {
+  width: 300px;
+  color: white;
+  --vc-members-nth-child-odd-color : green;
+  --vc-members-nth-child-even-color : blue;
+
+}
+```
+
 ## Linting with ESLint, Prettier, and Types
 To scan the project for linting errors, run
 ```bash
