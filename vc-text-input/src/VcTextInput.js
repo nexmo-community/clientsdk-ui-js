@@ -34,7 +34,8 @@ export class VcTextInput extends LitElement {
     return {
       conversation: { type: Object },
       message: { type: String },
-      placeholder: { type: String }
+      placeholder: { type: String },
+      buttonText: { type: String }
     };
   }
 
@@ -43,6 +44,7 @@ export class VcTextInput extends LitElement {
     this.conversation = {};
     this.message = "";
     this.placeholder = "Enter message";
+    this.buttonText = "send";
   }
 
   __handleKeypress(e) {
@@ -68,7 +70,7 @@ export class VcTextInput extends LitElement {
   render() {
     return html`
       <input part="input" placeholder=${this.placeholder} @keypress=${this.__handleKeypress} @keyup=${this.__handleKeyup} .value="${this.message}" type="text" id="text" name="text">
-      <button part="button" @click=${this.__handleClickEvent}>send</button>
+      <button part="button" @click=${this.__handleClickEvent}>${this.buttonText}</button>
     `;
   }
 }

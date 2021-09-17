@@ -18,6 +18,8 @@ npm i @vonage/vc-text-input
 </script>
 
 <vc-text-input></vc-text-input>
+// to set the placeholder and/or button with your own text
+<vc-text-input placeholder="your placeholder text"  buttonText="enter"></vc-text-input>
 ```
 The `vc-text-input` Web Component can handle all its responsibilities in a Conversation.
 
@@ -31,6 +33,30 @@ Then, pass the Conversation object to the Web Component:
 vcTextInput.conversation = conversation;
 ```
 > **Note:** To see where `conversation` came from, see step 10 in the [tutorial](https://developer.nexmo.com/client-sdk/tutorials/in-app-messaging/client-sdk/in-app-messaging/join-conversation/javascript).
+
+## Styling
+The `vc-text-input` component uses [CSS part](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) to apply custom styles.
+
+Here is a diagram that labels the parts of the component as well as the default style:
+![Diagram labeling the parts of the component](vc-text-input-style-diagram.jpg "Diagram labeling the parts of the component]")
+To style the input element, the part is "input". For the button element, the part is "button".
+
+Example:
+```css
+vc-text-input::part(button) {
+  color: red;
+  border: 2px green solid;
+  font-size: 30px;
+  background-color: transparent;
+}
+
+vc-text-input::part(input) {
+  color: red;
+  border-radius: 0px;
+  border: 4px blue dotted;
+  background-color: yellow;
+}
+```
 
 ## Linting with ESLint, Prettier, and Types
 To scan the project for linting errors, run
