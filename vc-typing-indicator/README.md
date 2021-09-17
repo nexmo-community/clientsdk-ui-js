@@ -35,7 +35,8 @@ vcTypingIndicator.conversation = conversation;
 ## Styling
 
 Here is the default style:
-![Diagram labeling the parts of the component](vc-typing-indicator-default-style.jpg "Diagram labeling the parts of the component]")
+
+![Default styling of the component](vc-typing-indicator-default-style.jpg "Default styling of the component")
 
 To style the component is the same as you would style another element tag like h1.
 
