@@ -32,6 +32,23 @@ vcTypingIndicator.conversation = conversation;
 ```
 > **Note:** To see where `conversation` came from, see step 10 in the [tutorial](https://developer.nexmo.com/client-sdk/tutorials/in-app-messaging/client-sdk/in-app-messaging/join-conversation/javascript).
 
+## Styling
+
+Here is the default style:
+![Diagram labeling the parts of the component](vc-typing-indicator-default-style.jpg "Diagram labeling the parts of the component]")
+
+To style the component is the same as you would style another element tag like h1.
+
+Example:
+```css
+vc-typing-indicator {
+  color: red;
+  border: 2px green solid;
+  font-size: 30px;
+  font-style: normal;
+}
+```
+
 ## Linting with ESLint, Prettier, and Types
 To scan the project for linting errors, run
 ```bash

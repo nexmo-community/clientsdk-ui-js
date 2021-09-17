@@ -39,6 +39,7 @@ The `vc-text-input` component uses [CSS part](https://developer.mozilla.org/en-U
 
 Here is a diagram that labels the parts of the component as well as the default style:
 ![Diagram labeling the parts of the component](vc-text-input-style-diagram.jpg "Diagram labeling the parts of the component]")
+
 To style the input element, the part is "input". For the button element, the part is "button".
 
 Example:
