@@ -1,6 +1,6 @@
 {
   "name": "@vonage/vc-members",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Web Component vc-members following open-wc recommendations",
   "author": "vc-members",
   "license": "MIT",
