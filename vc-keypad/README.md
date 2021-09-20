@@ -20,6 +20,89 @@ npm i @vonage/vc-keypad
 </script>
 
 <vc-keypad></vc-keypad>
+
+// with some attributes added
+<vc-keypad no-display keys='["","▲","","◀","","▶","","▼","","","",""]' actionText="💥 Pew"></vc-keypad>
+```
+
+Attributes that can be used (optional):
+
+- `no-asterisk` : hide the * button
+- `no-hash` : hide the # button
+- `no-display` : hide the input display
+- `actionText="custom text"` : customize the text on the start action button
+- `cancelText="custom text"` : customize the text on the cancel action button
+- `keys='["1","2"..."#"]'` : customize the text that shows on the keypad buttons
+- `placeholder="custom text"` : customize the input display's placeholder text 
+
+Events to listen for
+
+- `digit-added` : fired when a digit is added, payload contains the digit and it's position
+- `digits-sent` : fired when digit(s) are submitted, payload contains the digit(s)
+- `action-ended` : fired when an action is cancelled / ended
+
+Methods that can be called
+
+- `createAction()` : let the component know the action has started, will show the cancel button and hide the action button
+- `cancelAction()` : let the component know the action has be cancelled, will clear the input display and show the action button and hide the cancel button
+
+## Styling
+The `vc-keypad` component uses [CSS part](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) to apply custom styles.
+
+Here are two diagram that labels the parts of the component as well as the default style:
+
+![Diagram labeling the parts of the component](vc-keypad-style-diagram-1.jpg "Diagram labeling the parts of the component")
+
+To style the input display, the part is "input".
+
+Each row is labeled as "row". To style a specific row, the parts are labeled as "position1 position2 ... position5", i.e. "row position4".
+
+![Diagram labeling the parts of the component](vc-keypad-style-diagram-2.jpg "Diagram labeling the parts of the component")
+
+To apply a style to all buttons, target the part "button". Each button can be styled individually by adding its part "position1 position2 ... action cancel", i.e. "button position11".
+
+Example:
+
+```css
+vc-keypad::part(row position4) {
+  color: red;
+  border: 2px green solid;
+  font-size: 30px;
+  display: none;
+}
+
+vc-keypad::part(button) {
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  background-color: black;
+}
+
+vc-keypad::part(button action) {
+  border-radius: 6px;
+  width: 100%;
+  background-color: red;
+}
+
+vc-keypad::part(button position1) {
+  display: none;
+}
+
+vc-keypad::part(button position3) {
+  display: none;
+}
+
+vc-keypad::part(button position5) {
+  display: none;
+}
+
+vc-keypad::part(button position7) {
+  display: none;
+}
+
+vc-keypad::part(button position9) {
+  display: none;
+}
 ```
 
 ## Linting with ESLint, Prettier, and Types

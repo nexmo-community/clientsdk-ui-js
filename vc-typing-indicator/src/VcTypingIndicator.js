@@ -6,6 +6,8 @@ export class VcTypingIndicator extends LitElement {
       :host {
         display: block;
         padding: 25px;
+        font-size: 1.4rem;
+        font-style: italic;
         color: var(--vc-typing-indicator-text-color, #000);
       }
     `;

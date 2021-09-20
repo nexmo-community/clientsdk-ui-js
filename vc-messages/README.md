@@ -32,6 +32,61 @@ vcMessages.conversation = conversation;
 ```
 > **Note:** To see where `conversation` came from, see step 10 in the [tutorial](https://developer.nexmo.com/client-sdk/tutorials/in-app-messaging/client-sdk/in-app-messaging/join-conversation/javascript).
 
+## Styling
+The `vc-messages` component uses [CSS part](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) to apply custom styles.
+
+Here are two diagram that labels the parts of the component as well as the default style:
+
+![Diagram labeling the parts of the component](vc-messages-style-diagram-1.jpg "Diagram labeling the parts of the component")
+
+To style the overall message, the part is "message". To style the application user's message, the part to target is "message mine".
+
+![Diagram labeling the parts of the component](vc-messages-style-diagram-2.jpg "Diagram labeling the parts of the component")
+
+Each message is made up of the text (part is "message-text"), and their name (part is "username"). To specifically style the application user's message text, target "message-text mine" and for their name, the target would be "username mine".
+
+Example:
+```css
+vc-messages {
+  background-color: red;
+  height: 300px;
+}
+
+vc-messages::part(message) {
+  background-color: green;
+  border-radius: 20px 20px 20px 0;
+}
+
+vc-messages::part(message mine) {
+  text-align: left;
+  background-color: royalblue;
+  border-radius: 20px 20px 0 20px;
+  border: 0;
+}
+
+vc-messages::part(message-text) {
+  background-color: yellow;
+  border-radius: 20px 20px 20px 0;
+}
+
+vc-messages::part(message-text mine) {
+  background-color: purple;
+  color: white;
+  font-style: italic;
+  border-radius: 20px 20px 0 20px;
+}
+
+vc-messages::part(username) {
+  color: white;
+}
+
+vc-messages::part(username mine) {
+  text-align: right;
+  font-style: italic;
+  color: black;
+}
+```
+
 ## Linting with ESLint, Prettier, and Types
 To scan the project for linting errors, run
 ```bash

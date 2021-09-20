@@ -7,6 +7,7 @@ export class VcMessages extends LitElement {
         display: block;
         padding: 25px;
         color: var(--vc-messages-text-color, #000);
+        font-size: 1.4rem;
       }
       #messages-container {
         width: 100%;
@@ -14,13 +15,29 @@ export class VcMessages extends LitElement {
         overflow-y: auto;
       }
       .message {
-        border: 1px solid black;
-        padding: 5px;
-        border-radius: 9px;
+        padding: 15px;
         margin: 5px;
       }
-      .my-message {
+
+      .message-text {
+        border-radius: 6px;
+        background-color: #f0f0f0;
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 6px 6px 6px 0;
+      }
+
+      .message.mine {
         text-align: right;
+      }
+
+      .message-text.mine {
+        background-color: #e0e0ff;
+        border-radius: 6px 6px 0px 6px;
+      }
+
+      .username {
+        font-size: 1.2rem;
       }
     `;
   }
@@ -73,15 +90,13 @@ export class VcMessages extends LitElement {
         ${this.messages.map(
           message => html`
             ${this.myId === message.message.from
-              ? html`<div class="message my-message">
-                  ${message.message.body.text.replace(/</g, '&lt;')}<br /><small
-                    >${message.sender.displayName.replace(/</g, '&lt;')}</small
-                  >
-                </div>`
-              : html`<div class="message">
-                  ${message.message.body.text.replace(/</g, '&lt;')}<br /><small
-                    >${message.sender.displayName.replace(/</g, '&lt;')}</small
-                  >
+              ? html`<div class="message mine" part="message mine">
+                <div class="message-text mine" part="message-text mine">${message.message.body.text.replace(/</g, '&lt;')}</div>
+                <div class="username mine" part="username mine">${message.sender.displayName.replace(/</g, '&lt;')}</div>
+              </div>`
+              : html`<div class="message" part="message">
+                  <div class="message-text" part="message-text">${message.message.body.text.replace(/</g, '&lt;')}</div>
+                  <div class="username" part="username">${message.sender.displayName.replace(/</g, '&lt;')}</div>
                 </div>`}
           `
         )}
