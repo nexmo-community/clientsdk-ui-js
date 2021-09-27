@@ -12,6 +12,7 @@ Please see each Web Component for individual installation instructions.
 ### In-app voice:
 
 * [vc-keypad](vc-keypad)
+* [vc-contacts](vc-contacts)
 
 ### In-app messaging:
 
