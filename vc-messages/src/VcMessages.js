@@ -18,7 +18,6 @@ export class VcMessages extends LitElement {
         padding: 15px;
         margin: 5px;
       }
-
       .message-text {
         border-radius: 6px;
         background-color: #f0f0f0;
@@ -26,16 +25,13 @@ export class VcMessages extends LitElement {
         padding: 2px 8px;
         border-radius: 6px 6px 6px 0;
       }
-
       .message.mine {
         text-align: right;
       }
-
       .message-text.mine {
         background-color: #e0e0ff;
         border-radius: 6px 6px 0px 6px;
       }
-
       .username {
         font-size: 1.2rem;
       }
@@ -73,7 +69,7 @@ export class VcMessages extends LitElement {
     this.messageFeed = this.shadowRoot.querySelector('#messages-container');
     if (changedProperties.get('conversation')) {
       this.myId = this.conversation.me.id;
-      this.conversation.on('text', (sender, message) => {
+      this.conversation.on('message', (sender, message) => {
         this.messages = [...this.messages, { sender, message }];
         this.feedAtBottom = this.isFeedAtBottom();
       });

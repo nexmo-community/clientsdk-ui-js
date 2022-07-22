@@ -62,8 +62,12 @@ export class VcTextInput extends LitElement {
 
   async __handleClickEvent() {
     if (this.message){
-      await this.conversation.sendText(this.message);
-      this.message = '';
+      try {
+        await this.conversation.sendMessage({ "message_type": "text", "text": this.message });
+        this.message = '';
+      } catch (error) {
+        console.error("error sending the message ", error);
+      }
     }
   }
 
