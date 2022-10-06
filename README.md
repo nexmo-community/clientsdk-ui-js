@@ -30,7 +30,7 @@ We love to receive contributions from the community and hear your opinions! We w
 
 To get started:
 
-•	Ensure you go through the [README.md](https://github.com/nexmo-community/clientsdk-ui-js/blob/main/README.md) document so you can get familiar with the project.
+•	Ensure you go through the [README.md](README.md) document so you can get familiar with the project.
 
 •	Check the [Issues](https://github.com/nexmo-community/clientsdk-ui-js/issues) for open tickets.
 
