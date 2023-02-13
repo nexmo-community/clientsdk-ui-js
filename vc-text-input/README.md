@@ -18,9 +18,18 @@ npm i @vonage/vc-text-input
 </script>
 
 <vc-text-input></vc-text-input>
-// to set the placeholder and/or button with your own text
-<vc-text-input placeholder="your placeholder text"  buttonText="enter"></vc-text-input>
 ```
+
+### Attributes that can be used (optional):
+
+- `placeholder` : set the text for the input's placeholder. Default is "Enter message".
+- `buttonText` : set the text for the button. Default is "send".
+- `typingTimeout` : set the number of milliseconds before sending the stop typing indication. Default is 500.
+
+```html
+<vc-text-input placeholder="your placeholder text"  buttonText="enter" typingTimeout="1500" ></vc-text-input>
+```
+
 The `vc-text-input` Web Component can handle all its responsibilities in a Conversation.
 
 First, get a reference to the element:

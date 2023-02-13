@@ -1,4 +1,4 @@
-import { html, css, LitElement } from 'lit-element';
+import { html, css, LitElement } from 'lit';
 
 export class VcTextInput extends LitElement {
   static get styles() {
@@ -35,7 +35,8 @@ export class VcTextInput extends LitElement {
       conversation: { type: Object },
       message: { type: String },
       placeholder: { type: String },
-      buttonText: { type: String }
+      buttonText: { type: String },
+      typingTimeout: { type: Number },
     };
   }
 
@@ -45,6 +46,7 @@ export class VcTextInput extends LitElement {
     this.message = "";
     this.placeholder = "Enter message";
     this.buttonText = "send";
+    this.typingTimeout = 500;
   }
 
   __handleKeypress(e) {
@@ -57,7 +59,7 @@ export class VcTextInput extends LitElement {
     clearTimeout(timeout)
     timeout = setTimeout(() => {
       this.conversation.stopTyping();
-    }, 500);
+    }, this.typingTimeout);
   }
 
   async __handleClickEvent() {
