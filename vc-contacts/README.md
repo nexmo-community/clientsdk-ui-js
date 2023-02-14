@@ -1,6 +1,6 @@
 # \<vc-contacts>
 
-This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
+This Web Component follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
 For more information about the contacts component, please see the following blog post:
 * [Creating a Web Component With Open-WC](https://learn.vonage.com/blog/2020/08/13/creating-a-web-component-with-open-wc/)
